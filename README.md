@@ -13,12 +13,19 @@ and 2 directories test & train each containing 3 additional data files (zzzz suf
 - y_zzzz.txt            describing the activities performed by the individual
 
 The script performs the following methodology :
-1.Merges the training and the test sets to create one data set.
-2.Extracts only the measurements on the mean and standard deviation for each measurement. 
-3.Uses descriptive activity names to name the activities in the data set
-4.Appropriately labels the data set with descriptive variable names. 
-5.From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
-And saves this final tidy data set in the working directory as group_tidy.txt
+- Obtains the names of the measurements and assigns them to the  train and test datasets
+- Merges the train and test data to create one data set.
+- Extracts only the measurements on the mean and standard deviation for each measurement. 
+- Assigns descriptive activity names to name the activities in the data set
+- Appropriately labels the data set with descriptive variable names. 
+- creates a  tidy data set with the average of each variable for each activity and each subject
+- saves this final tidy data set in the working directory as group_tidy.txt
+
+The file 'group_tidy.txt' meets the requirements for being a tidy data set as  
+- it contains one row per observation
+- it contains meaningful column names for the observations
+- columns are not duplicated
+Please see the codebook for more detail.
 
 The script was developed on a Windows 8 pc using R version 3.1.0, the R environment is as follows:
 R version 3.1.0 (2014-04-10)
