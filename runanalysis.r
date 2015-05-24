@@ -18,12 +18,12 @@
 # Obtain input data and store in tables - done in 2 phases
 # phase 1 : obtain train data
 
-labels <-"c:/users/Pierre/Documents/course3/unzipped/UCI HAR Dataset/features.txt"
+labels <-"features.txt"
 read_labels <-read.table(labels,colClasses=rep("character",1))
 
-file1a <-"c:/users/Pierre/Documents/course3/unzipped/UCI HAR Dataset/train/subject_train.txt"
-file1b <-"c:/users/Pierre/Documents/course3/unzipped/UCI HAR Dataset/train/x_train.txt"
-file1c <-"c:/users/Pierre/Documents/course3/unzipped/UCI HAR Dataset/train/y_train.txt"
+file1a <-"train/subject_train.txt"
+file1b <-"train/x_train.txt"
+file1c <-"train/y_train.txt"
 
 read_file1a<-read.table(file1a,colClasses=rep("numeric",1))
 read_file1b<-read.table(file1b,colClasses=rep("numeric",561))
@@ -49,9 +49,9 @@ train_data<-cbind(read_file1a,read_file1c,read_file1b)
 
 # phase 2: obtain test data
 
-file2a <- "c:/users/Pierre/Documents/course3/unzipped/UCI HAR Dataset/test/subject_test.txt"
-file2b <- "c:/users/Pierre/Documents/course3/unzipped/UCI HAR Dataset/test/x_test.txt"
-file2c <- "c:/users/Pierre/Documents/course3/unzipped/UCI HAR Dataset/test/y_test.txt"
+file2a <- "test/subject_test.txt"
+file2b <- "test/x_test.txt"
+file2c <- "test/y_test.txt"
 
 read_file2a<-read.table(file2a,colClasses=rep("numeric",1))
 read_file2b<-read.table(file2b,colClasses=rep("numeric",561))
@@ -87,7 +87,7 @@ for (i in 1:length(desired_cols)) {
 
 # Determine  the Activity Descriptions to the dataset
 
-activities <-"c:/users/Pierre/Documents/course3/unzipped/UCI HAR Dataset/activity_labels.txt"
+activities <-"activity_labels.txt"
 read_activities <-read.table(activities,colClasses=c("integer","character"))
 names(read_activities) [[1]]<-c("activity")
 names(read_activities) [[2]]<-c("activity_type")
@@ -105,7 +105,7 @@ grouped_tidied_data <-group_by(tidy_data,subject,activity_type) %>% summarise_ea
 
 # Save final output 
 
-write.table(grouped_tidied_data, file = "c:/users/Pierre/Documents/course3/unzipped/UCI HAR Dataset/group_tidy.txt", 
+write.table(grouped_tidied_data, file = "group_tidy.txt", 
 sep = ",", row.names = FALSE)
 
 
